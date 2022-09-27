@@ -3,32 +3,47 @@
 
 {% block body %}
     <!-- Start of body content specific to page -->
-    
+    <style>
+        body {
+          background-color: #93e9be;
+        }
+        .card {
+          background-color: rgb(193, 193, 193);
+          border-radius: 10px;
+        }
+        
+        
+        
+        
+        h5 {
+          color: white;
+          text-align: center;
+        }
+        
+        p {
+            color: rgba(255, 255, 255, 0.808);
+          font-family: verdana;
+          font-size: 20px;
+        }
+        li{
+            color: rgba(255, 255, 255, 0.808);
+          font-family: verdana;
+          font-size: 20px;
+        }
+        div {
+            color: rgba(255, 255, 255, 0.063);
+          font-family: verdana;
+          font-size: 20px;
+        }
+
+        </style>
     <div class="px-5 py-5 mx-auto">
         <h1 class="text-white"><strong>Python Home Page</strong></h1>
-        <script>
-            function startTime() {
-              const today = new Date();
-              let h = today.getHours();
-              let m = today.getMinutes();
-              let s = today.getSeconds();
-              m = checkTime(m);
-              s = checkTime(s);
-              document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
-              setTimeout(startTime, 1000);
-            }
-            
-            function checkTime(i) {
-              if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-              return i;
-            }
-            </script>            
         <div class="row">
-            <div class="col-4">
+            <div class="col-4" >
                 <div class="card">
-                    <img class="card-img-top" src="{{ url_for('static', filename='assets/python.jpeg') }}" alt="Python Development" height="250">
                     <div class="card-body">
-                    <h5 class="card-title">What should <mark>Student Developers learn</mark>?</h5>
+                    <h5 class="card-title">What should Student Developers learn?</h5>
                     <p class="card-text">
                         <ol>
                             <li>Python 3.9 is used for most of our backend PBL. HTML, CSS, JavaScript will be used in frontend</li>
@@ -42,11 +57,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-4" >
                 <div class="card">
-                    <img class="card-img-top" src="{{ url_for('static', filename='assets/flask.png') }}" alt="Flask Development" height="250">
                     <div class="card-body">
-                    <h5 class="card-title">What is <mark>Flask</mark>? How do I start Web development?</h5>
+                    <h5 class="card-title">What is Flask? How do I start Web development?</h5>
                     <p class="card-text">
                         <ol>
                             <li>Flask Framework is the popular Web Application development framework of Python.</li>
@@ -61,9 +75,8 @@
             </div>
             <div class="col-4">
                 <div class="card">
-                    <img class="card-img-top" src="{{ url_for('static', filename='assets/pythondb.png') }}" alt="Backend and Persistence" height="250">
                     <div class="card-body">
-                    <h5 class="card-title">How do you manage <mark>Persistent data</mark> with Python?</h5>
+                    <h5 class="card-title">How do you manage Persistent data with Python?</h5>
                     <p class="card-text">
                         <ol>
                             <li>A Database is an example of persistent data that is held on a computer.  Programming languages and frameworks allow you to store and retrive data.</li>

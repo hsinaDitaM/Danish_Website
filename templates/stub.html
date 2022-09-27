@@ -7,9 +7,28 @@
 <!-- This is a replacement block for Body in base.html -->
 {% block body %}
     <!-- Try building a new body here, bootstrap is a wise choice -->
+    <style>
+        body {
+          background-color: #93e9be;
+        }
+        h1{
+            color: #FAA0A0;
+            font-family: verdana;
+        }
+        li {
+            color:aliceblue
+        }
+        p {
+            color: aliceblue
+        }
+    </style>
     <div class="px-5 py-5 mx-auto">
-        <h1 class="text-primary"><strong>Stubby Body</strong></h1>
-        <p class="text-secondary">Mati Danish Website</p>
+        <h1><strong>Hobbies to learn when bored</strong></h1>
+        <p>By Mati Danish</p>
+        <li>Photography</li>
+        <li>Coding</li>
+        <li>Photoshop</li>
+        <li>Video Editing</li>
     </div>
 {% endblock %}
 
