@@ -1,20 +1,44 @@
 <!-- Navigation Bar from bootstrap
 This HTML is setup as a fragment allowing it to be "included" by other HTML files via Jinja2
 -->
+
+<style>
+    .clock {
+        transform: translateX(-60%) translateY(-0%);
+        color: rgba(0,0,0,.55);
+        font-size: 20px;
+        font-family: 'verdana';
+        letter-spacing: 2px;
+    }
+    h2{
+        color:rgba(148, 217, 221, 0);
+    }
+    h3{
+        color: #0000008c;
+    }
+    .bg-light {
+    background-color: #a2a2a2!important;
+    }
+    strong{
+        color: #0000008c;
+    }
+
+</style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <img src="{{ url_for('static', filename='assets/ncs_logo.png') }}" width="50" height="50" class="d-inline-block align-center" alt="">
-    <a class="navbar-brand" href="https://csp.nighthawkcodingsociety.com/">{{basename}}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <!-- url_for is a Jinja2 pre-processor that finds route from function name (def) -->
+            <h2>_</h2>
+            <strong>Mati Danish</strong>
             <a class="nav-link" href={{ url_for('index') }}>Home</a>
+            <a class="nav-link" href=https://github.com/hsinaDitaM/Danish_Cookies>Github</a>
             <a class="nav-link" href={{ url_for('stub') }}>Stub</a>
         </div>
     </div>
-    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown" style= "width: 90%;">
         <ul class="navbar-nav">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -28,5 +52,40 @@ This HTML is setup as a fragment allowing it to be "included" by other HTML file
                 </ul>
             </li>
         </ul>
+    </div>
+
+    <div class="clock-container">
+        <div id="MyClockDisplay" class="clock" onload="showTime()">03:49:01 PM</div>
+        <script> 
+            function showTime(){
+            var date = new Date();
+            var h = date.getHours(); // 0 - 23
+            var m = date.getMinutes(); // 0 - 59
+            var s = date.getSeconds(); // 0 - 59
+            var session = "AM";
+            
+            if(h == 0){
+                h = 12;
+            }
+            
+            if(h > 12){
+                h = h - 12;
+                session = "PM";
+            }
+            
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+            
+            var time = h + ":" + m + ":" + s + " " + session;
+            document.getElementById("MyClockDisplay").innerText = time;
+            document.getElementById("MyClockDisplay").textContent = time;
+            
+            setTimeout(showTime, 1000);
+            
+        }
+
+        showTime();
+        </script>
     </div>
 </nav>
